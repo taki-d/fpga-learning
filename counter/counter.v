@@ -11,17 +11,17 @@ module counter(clk, seg, segsel, nbtn);
 	input clk;
 	reg [15:0] counter;
 	
-	reg [24:0] count;
+	reg [21:0] count;
 	
 	always @(posedge clk) begin
 		count = count + 1;
 		
-		if(count == 25'b1) begin
+		if(count == 22'b1) begin
 			if(btn[0]) begin
-				counter = counter + 1;
+				counter = counter - 1;
 			end
 			else begin
-				counter = counter - 1;
+				counter = counter + 1;
 			end
 		end
 	end
